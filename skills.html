@@ -1,0 +1,252 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keahlian | Fadhil Akhmad</title>
+  <style>
+    :root {
+      --bg: #090b18;
+      --panel: rgba(22, 27, 52, .82);
+      --text: #f5f7ff;
+      --muted: #a6afcb;
+      --red: #ff315a;
+      --blue: #39a7ff;
+      --purple: #a66cff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse at 15% 10%, #35112f, transparent 35%),
+        radial-gradient(ellipse at 85% 25%, #102d59, transparent 36%),
+        var(--bg);
+      font-family: Inter, system-ui, Arial, sans-serif;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-image:
+        linear-gradient(#6675a0 1px, transparent 1px),
+        linear-gradient(90deg, #6675a0 1px, transparent 1px);
+      background-size: 42px 42px;
+      opacity: .18;
+      pointer-events: none;
+    }
+
+    header {
+      width: min(1120px, 92%);
+      margin: auto;
+      padding: 25px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .brand { font-weight: 900; letter-spacing: 1px; font-size: 1.15rem; }
+    .brand span { color: var(--red); }
+
+    nav { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    nav a {
+      border: 1px solid #414969;
+      background: #14182c;
+      color: var(--text);
+      border-radius: 12px;
+      padding: 10px 14px;
+      text-decoration: none;
+      transition: .2s;
+    }
+
+    nav a:hover, nav a.active {
+      border-color: var(--blue);
+      background: #1b2d4a;
+      box-shadow: 0 0 18px #39a7ff30;
+    }
+
+    main { width: min(1000px, 92%); margin: 35px auto 65px; }
+
+    .eyebrow {
+      color: #ff6684;
+      letter-spacing: 3px;
+      font-size: .78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    h1 { font-size: clamp(2.3rem, 6vw, 4rem); margin: 15px 0; }
+
+    .gradient {
+      background: linear-gradient(95deg, var(--red), var(--purple), var(--blue));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .intro { color: var(--muted); line-height: 1.8; margin-bottom: 30px; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      border: 1px solid #333d60;
+      border-radius: 20px;
+      padding: 23px;
+      background: var(--panel);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 16px 38px #00000025;
+      transition: transform .25s, border-color .25s;
+    }
+
+    .card:hover { transform: translateY(-5px); border-color: var(--purple); }
+
+    .card h2 { font-size: 1.15rem; margin: 10px 0; }
+    .card p { color: var(--muted); line-height: 1.7; }
+
+    .icon { font-size: 2rem; }
+
+    .skill-label {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      font-size: .9rem;
+    }
+
+    .track { height: 10px; background: #252b46; border-radius: 99px; overflow: hidden; }
+
+    .fill {
+      height: 100%;
+      border-radius: 99px;
+      background: linear-gradient(90deg, var(--red), var(--purple), var(--blue));
+    }
+
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+
+    .btn {
+      display: inline-block;
+      border-radius: 12px;
+      border: 1px solid #414969;
+      padding: 12px 17px;
+      background: #161a30;
+      color: white;
+      text-decoration: none;
+      font-weight: 750;
+    }
+
+    .btn.primary {
+      border: 0;
+      background: linear-gradient(100deg, #ef3159, #7959ef, #278fff);
+      box-shadow: 0 8px 28px #7a48df38;
+    }
+
+    footer {
+      border-top: 1px solid #272d48;
+      padding: 25px 15px;
+      text-align: center;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    @media (max-width: 700px) {
+      header { align-items: flex-start; flex-direction: column; }
+      nav a { padding: 9px 11px; font-size: .9rem; }
+      main { margin-top: 15px; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">FADHIL<span>.</span>DEV</div>
+    <nav aria-label="Navigasi utama">
+      <a href="index.html">Beranda</a>
+      <a href="profile.html">Profil</a>
+      <a class="active" href="skills.html">Keahlian</a>
+      <a href="progress.html">Pembelajaran</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="eyebrow">02 / Technical Skills</div>
+    <h1>Bidang <span class="gradient">Keahlian.</span></h1>
+    <p class="intro">
+      Bidang yang sedang saya pelajari dan latih. Persentase ini merupakan
+      perkiraan pribadi, bukan hasil sertifikasi resmi.
+    </p>
+
+    <div class="grid">
+      <article class="card">
+        <div class="icon">🌐</div>
+        <h2>Web Security</h2>
+        <p>Mempelajari keamanan aplikasi web, termasuk IDOR, XSS, LFI, dan keamanan unggah file.</p>
+        <div class="skill-label"><span>Progres latihan</span><strong>65%</strong></div>
+        <div class="track"><div class="fill" style="width:65%"></div></div>
+      </article>
+
+      <article class="card">
+        <div class="icon">🐧</div>
+        <h2>Linux &amp; System Security</h2>
+        <p>Mempelajari permission, user dan group, enumeration, serta dasar privilege escalation di lab.</p>
+        <div class="skill-label"><span>Progres latihan</span><strong>55%</strong></div>
+        <div class="track"><div class="fill" style="width:55%"></div></div>
+      </article>
+
+      <article class="card">
+        <div class="icon">🔍</div>
+        <h2>Digital Forensics</h2>
+        <p>Menganalisis metadata, strings, file, dan lalu lintas jaringan melalui PCAP.</p>
+        <div class="skill-label"><span>Progres latihan</span><strong>70%</strong></div>
+        <div class="track"><div class="fill" style="width:70%"></div></div>
+      </article>
+
+      <article class="card">
+        <div class="icon">⚙️</div>
+        <h2>Reverse Engineering</h2>
+        <p>Mengenali file ELF/EXE, memeriksa strings, dan mempelajari obfuscation.</p>
+        <div class="skill-label"><span>Progres latihan</span><strong>25%</strong></div>
+        <div class="track"><div class="fill" style="width:25%"></div></div>
+      </article>
+
+      <article class="card">
+        <div class="icon">🔐</div>
+        <h2>Cryptography</h2>
+        <p>Mempelajari Caesar, Vigenere, XOR, hashing, dan konsep PRNG.</p>
+        <div class="skill-label"><span>Progres latihan</span><strong>15%</strong></div>
+        <div class="track"><div class="fill" style="width:15%"></div></div>
+      </article>
+
+      <article class="card">
+        <div class="icon">💻</div>
+        <h2>Programming</h2>
+        <p>Membangun proyek dan berlatih menggunakan HTML, CSS, JavaScript, dan Python.</p>
+        <div class="skill-label"><span>Progres latihan</span><strong>60%</strong></div>
+        <div class="track"><div class="fill" style="width:60%"></div></div>
+      </article>
+    </div>
+
+    <div class="actions">
+      <a class="btn" href="profile.html">← Kembali ke Profil</a>
+      <a class="btn primary" href="progress.html">Lihat Pembelajaran →</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2026 Fadhil Akhmad · Cybersecurity Portfolio</p>
+  </footer>
+</body>
+</html>

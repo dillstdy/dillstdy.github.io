@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Profil pribadi Fadhil Akhmad">
+  <title>Profil | Fadhil Akhmad</title>
+  <style>
+    :root {
+      --bg: #090b18;
+      --panel: rgba(22, 27, 52, .82);
+      --text: #f5f7ff;
+      --muted: #a6afcb;
+      --red: #ff315a;
+      --blue: #39a7ff;
+      --purple: #a66cff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse at 15% 10%, #35112f, transparent 35%),
+        radial-gradient(ellipse at 85% 25%, #102d59, transparent 36%),
+        var(--bg);
+      font-family: Inter, system-ui, Arial, sans-serif;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-image:
+        linear-gradient(#6675a0 1px, transparent 1px),
+        linear-gradient(90deg, #6675a0 1px, transparent 1px);
+      background-size: 42px 42px;
+      opacity: .18;
+      pointer-events: none;
+    }
+
+    header {
+      width: min(1120px, 92%);
+      margin: auto;
+      padding: 25px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      font-weight: 900;
+      letter-spacing: 1px;
+      font-size: 1.15rem;
+    }
+
+    .brand span { color: var(--red); }
+
+    nav {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      border: 1px solid #414969;
+      background: #14182c;
+      color: var(--text);
+      border-radius: 12px;
+      padding: 10px 14px;
+      text-decoration: none;
+      transition: .2s;
+    }
+
+    nav a:hover, nav a.active {
+      border-color: var(--blue);
+      background: #1b2d4a;
+      box-shadow: 0 0 18px #39a7ff30;
+    }
+
+    main {
+      width: min(1000px, 92%);
+      margin: 35px auto 65px;
+    }
+
+    .eyebrow {
+      color: #ff6684;
+      letter-spacing: 3px;
+      font-size: .78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(2.3rem, 6vw, 4rem);
+      margin: 15px 0;
+    }
+
+    .gradient {
+      background: linear-gradient(95deg, var(--red), var(--purple), var(--blue));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .intro {
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .card {
+      border: 1px solid #333d60;
+      border-radius: 20px;
+      padding: 25px;
+      background: var(--panel);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 16px 38px #00000025;
+      transition: transform .25s, border-color .25s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: var(--purple);
+    }
+
+    .avatar {
+      width: 120px;
+      height: 120px;
+      margin: 10px auto 25px;
+      display: grid;
+      place-items: center;
+      font-size: 3.5rem;
+      border: 1px solid #a4a9ff;
+      border-radius: 28px;
+      background: linear-gradient(135deg, #ff315a66, #8d54ff55, #239fff66);
+      box-shadow: 12px 15px 40px #a33aff28;
+      transform: rotateY(-12deg) rotateX(8deg);
+    }
+
+    .identity { text-align: center; }
+
+    .identity h2 { margin-bottom: 8px; }
+
+    .identity p, .muted {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .status {
+      display: inline-block;
+      color: #65f5bd;
+      background: #65f5bd12;
+      border: 1px solid #65f5bd50;
+      padding: 8px 12px;
+      border-radius: 99px;
+      font-size: .85rem;
+    }
+
+    .detail {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 15px 0;
+      border-bottom: 1px solid #343b58;
+    }
+
+    .detail:last-child { border-bottom: 0; }
+
+    .detail span:first-child { color: var(--muted); }
+
+    .detail span:last-child {
+      text-align: right;
+      overflow-wrap: anywhere;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .btn {
+      display: inline-block;
+      border-radius: 12px;
+      border: 1px solid #414969;
+      padding: 12px 17px;
+      background: #161a30;
+      color: white;
+      text-decoration: none;
+      font-weight: 750;
+      transition: .2s;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn.primary {
+      border: 0;
+      background: linear-gradient(100deg, #ef3159, #7959ef, #278fff);
+      box-shadow: 0 8px 28px #7a48df38;
+    }
+
+    footer {
+      border-top: 1px solid #272d48;
+      padding: 25px 15px;
+      text-align: center;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    @media (max-width: 700px) {
+      header { align-items: flex-start; flex-direction: column; }
+      nav a { padding: 9px 11px; font-size: .9rem; }
+      main { margin-top: 15px; }
+      .grid { grid-template-columns: 1fr; }
+      .detail { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">FADHIL<span>.</span>DEV</div>
+    <nav aria-label="Navigasi utama">
+      <a href="index.html">Beranda</a>
+      <a class="active" href="profile.html">Profil</a>
+      <a href="skills.html">Keahlian</a>
+      <a href="progress.html">Pembelajaran</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="eyebrow">01 / Tentang Saya</div>
+    <h1>Profil <span class="gradient">Pribadi.</span></h1>
+    <p class="intro">
+      Kenali saya dan bidang yang sedang saya pelajari dalam perjalanan
+      mengembangkan kemampuan keamanan siber.
+    </p>
+
+    <div class="grid">
+      <section class="card identity">
+        <div class="avatar">👨‍💻</div>
+        <h2>Fadhil Akhmad</h2>
+        <p>Pelajar · Cybersecurity Enthusiast</p>
+        <span class="status">● Terus Belajar</span>
+      </section>
+
+      <section class="card">
+        <h2>Informasi Saya</h2>
+        <div class="detail"><span>Nama</span><span>Fadhil Akhmad</span></div>
+        <div class="detail"><span>Username</span><span>dillstdy</span></div>
+        <div class="detail"><span>Sekolah</span><span>SMK Tamtama 1 Sidareja</span></div>
+        <div class="detail"><span>Bidang</span><span>Cybersecurity</span></div>
+        <div class="detail"><span>Fokus</span><span>Belajar &amp; praktik</span></div>
+        <div class="detail"><span>Domisili</span><span>Indonesia</span></div>
+      </section>
+    </div>
+
+    <div class="actions">
+      <a class="btn" href="index.html">← Kembali ke Beranda</a>
+      <a class="btn primary" href="skills.html">Lanjut ke Keahlian →</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2026 Fadhil Akhmad · Cybersecurity Portfolio</p>
+  </footer>
+</body>
+</html> 
