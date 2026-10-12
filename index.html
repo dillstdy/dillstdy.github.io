@@ -1,487 +1,308 @@
-```html
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Website portofolio cybersecurity Fadhil Akhmad.">
+  <meta name="author" content="Fadhil Akhmad">
+  <meta name="theme-color" content="#090b18">
+  <title>Fadhil Akhmad | Cybersecurity Portfolio</title>
 
-    <title>CyberProfile | Cybersecurity Student</title>
+  <style>
+    :root {
+      --bg: #090b18;
+      --panel: rgba(22, 27, 52, .78);
+      --text: #f5f7ff;
+      --muted: #a6afcb;
+      --red: #ff315a;
+      --blue: #39a7ff;
+      --purple: #a66cff;
+    }
 
-    <link rel="stylesheet" href="style.css">
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse at 15% 10%, #35112f 0, transparent 35%),
+        radial-gradient(ellipse at 85% 25%, #102d59 0, transparent 36%),
+        var(--bg);
+      font-family: Inter, system-ui, Arial, sans-serif;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      opacity: .18;
+      background-image:
+        linear-gradient(#6675a0 1px, transparent 1px),
+        linear-gradient(90deg, #6675a0 1px, transparent 1px);
+      background-size: 42px 42px;
+    }
+
+    header {
+      width: min(1120px, 92%);
+      margin: auto;
+      padding: 25px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .brand {
+      font-weight: 900;
+      letter-spacing: 1px;
+      font-size: 1.15rem;
+    }
+
+    .brand span { color: var(--red); }
+
+    nav {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    nav a {
+      border: 1px solid #414969;
+      background: #14182c;
+      color: var(--text);
+      border-radius: 12px;
+      padding: 10px 14px;
+      text-decoration: none;
+      transition: .2s;
+    }
+
+    nav a:hover, nav a.active {
+      border-color: var(--blue);
+      background: #1b2d4a;
+      box-shadow: 0 0 18px #39a7ff30;
+    }
+
+    main {
+      width: min(1050px, 92%);
+      margin: 35px auto 75px;
+    }
+
+    .hero {
+      min-height: 390px;
+      display: grid;
+      grid-template-columns: 1.3fr .7fr;
+      align-items: center;
+      gap: 35px;
+    }
+
+    .eyebrow {
+      color: #ff6684;
+      letter-spacing: 3px;
+      font-size: .78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      line-height: 1.04;
+      letter-spacing: -2px;
+      margin: 18px 0;
+    }
+
+    .gradient {
+      background: linear-gradient(95deg, var(--red), var(--purple), var(--blue));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .intro {
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 570px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .btn {
+      display: inline-block;
+      border-radius: 12px;
+      border: 1px solid #414969;
+      padding: 12px 17px;
+      background: #161a30;
+      color: white;
+      text-decoration: none;
+      font-weight: 750;
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 22px #00000030;
+    }
+
+    .btn.primary {
+      border: 0;
+      background: linear-gradient(100deg, #ef3159, #7959ef, #278fff);
+      box-shadow: 0 8px 28px #7a48df38;
+    }
+
+    .scene {
+      min-height: 310px;
+      display: grid;
+      place-items: center;
+      perspective: 850px;
+    }
+
+    .cube {
+      width: 190px;
+      height: 190px;
+      border: 1px solid #a4a9ff;
+      border-radius: 35px;
+      display: grid;
+      place-items: center;
+      font-size: 5rem;
+      background: linear-gradient(135deg, #ff315a66, #8d54ff55, #239fff66);
+      box-shadow: 20px 25px 70px #a33aff28, inset 0 0 35px #ffffff0c;
+      transform: rotateY(-18deg) rotateX(12deg);
+      animation: float 5s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: rotateY(-18deg) rotateX(12deg) translateY(0);
+      }
+      50% {
+        transform: rotateY(12deg) rotateX(-5deg) translateY(-15px);
+      }
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      border: 1px solid #333d60;
+      border-radius: 20px;
+      padding: 23px;
+      background: var(--panel);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 16px 38px #00000020;
+      transition: transform .25s, border-color .25s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #777dff;
+    }
+
+    .card h2 { margin: 7px 0 12px; }
+    .card p { color: var(--muted); line-height: 1.75; margin-bottom: 0; }
+    .icon { font-size: 1.7rem; }
+
+    footer {
+      border-top: 1px solid #272d48;
+      padding: 25px 15px;
+      text-align: center;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    @media (max-width: 700px) {
+      header { align-items: flex-start; flex-direction: column; }
+      nav { justify-content: flex-start; }
+      nav a { padding: 9px 11px; font-size: .9rem; }
+      main { margin-top: 15px; }
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 0;
+        padding-top: 25px;
+      }
+      .scene { min-height: 230px; }
+      .cube { width: 150px; height: 150px; font-size: 4rem; }
+      .grid { grid-template-columns: 1fr; }
+      h1 { letter-spacing: -1px; }
+    }
+  </style>
 </head>
 
 <body>
+  <header>
+    <div class="brand">FADHIL<span>.</span>DEV</div>
 
-    <!-- Background Matrix -->
-    <canvas id="matrix"></canvas>
-
-    <!-- NAVBAR -->
-    <nav class="navbar">
-
-        <div class="logo">
-            <span>&lt;/&gt;</span> CYBER<span>PROFILE</span>
-        </div>
-
-        <div class="nav-menu">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#terminal">Terminal</a>
-            <a href="#contact">Contact</a>
-        </div>
-
+    <nav aria-label="Navigasi utama">
+      <a class="active" href="index.html">Beranda</a>
+      <a href="profile.html">Profil</a>
+      <a href="skills.html">Keahlian</a>
+      <a href="progress.html">Pembelajaran</a>
     </nav>
-
-
-    <!-- HERO -->
-    <section id="home" class="hero">
-
-        <div class="hero-text">
-
-            <div class="status">
-                <span></span> SYSTEM ONLINE
-            </div>
-
-            <p class="terminal-line">
-                cyber2@kali:~$ whoami
-            </p>
-
-            <h1>
-                CYBER<br>
-                <span>SECURITY</span><br>
-                STUDENT
-            </h1>
-
-            <p class="intro">
-                Selamat datang di personal cybersecurity portfolio saya.
-                Saya sedang belajar Linux, Web Security, Digital Forensics,
-                Reverse Engineering dan berbagai bidang cybersecurity.
-            </p>
-
-            <div class="buttons">
-
-                <a href="#about" class="btn primary">
-                    Explore Profile
-                </a>
-
-                <a href="#skills" class="btn outline">
-                    View Skills
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <!-- TERMINAL CARD -->
-        <div class="terminal-card">
-
-            <div class="terminal-header">
-
-                <div class="dots">
-                    <span class="dot red"></span>
-                    <span class="dot yellow"></span>
-                    <span class="dot green"></span>
-                </div>
-
-                <span>cyber_terminal</span>
-
-            </div>
-
-
-            <div class="terminal-content">
-
-                <p>
-                    <span class="blue">user@kali</span>:~$ neofetch
-                </p>
-
-                <pre>
-   ██████╗██╗   ██╗██████╗ ███████╗██████╗
-  ██╔════╝╚██╗ ██╔╝██╔══██╗██╔════╝██╔══██╗
-  ██║      ╚████╔╝ ██████╔╝█████╗  ██████╔╝
-  ██║       ╚██╔╝  ██╔══██╗██╔══╝  ██╔══██╗
-  ╚██████╗   ██║   ██████╔╝███████╗██║  ██║
-   ╚═════╝   ╚═╝   ╚═════╝ ╚══════╝╚═╝  ╚═╝
-                </pre>
-
-                <p>
-                    OS       : Kali Linux
-                </p>
-
-                <p>
-                    Role     : <span class="purple">
-                    Cybersecurity Student
-                    </span>
-                </p>
-
-                <p>
-                    Status   : <span class="green-text">
-                    ONLINE
-                    </span>
-                </p>
-
-                <p>
-                    Mission  : Learn • Practice • Secure
-                </p>
-
-                <p>
-                    <span class="blue">user@kali</span>:~$
-                    <span class="cursor">█</span>
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ABOUT -->
-    <section id="about" class="section">
-
-        <div class="section-title">
-            <span>// 01</span>
-            <h2>ABOUT <b>ME</b></h2>
-        </div>
-
-
-        <div class="about-grid">
-
-            <div class="profile-card">
-
-                <div class="profile-icon">
-                    🧑‍💻
-                </div>
-
-                <h3>Cybersecurity Student</h3>
-
-                <p>
-                    Learning cybersecurity one challenge at a time.
-                </p>
-
-                <div class="profile-status">
-                    ● Available for Learning
-                </div>
-
-            </div>
-
-
-            <div class="info-card">
-
-                <div class="info-row">
-                    <span>Nama</span>
-                    <strong>Fadhil akhmad</strong>
-                </div>
-
-                <div class="info-row">
-                    <span>Sekolah</span>
-                    <strong>SMK tamtama 1 sidareja</strong>
-                </div>
-
-                <div class="info-row">
-                    <span>Jurusan</span>
-                    <strong>Cybersecurity</strong>
-                </div>
-
-                <div class="info-row">
-                    <span>Lokasi</span>
-                    <strong>Indonesia 🇮🇩</strong>
-                </div>
-
-                <div class="info-row">
-                    <span>Focus</span>
-                    <strong>Cybersecurity</strong>
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- SKILLS -->
-    <section id="skills" class="section skills-section">
-
-        <div class="section-title">
-            <span>// 02</span>
-            <h2>CYBER <b>SKILLS</b></h2>
-        </div>
-
-
-        <div class="skills-grid">
-
-
-            <div class="skill-card red-card">
-
-                <div class="skill-number">
-                    01
-                </div>
-
-                <div class="skill-icon">
-                    🌐
-                </div>
-
-                <h3>WEB SECURITY</h3>
-
-                <p>
-                    IDOR, XSS, LFI, File Upload
-                    dan web exploitation.
-                </p>
-
-                <div class="skill-bar">
-                    <div style="width:75%"></div>
-                </div>
-
-                <small>75%</small>
-
-            </div>
-
-
-            <div class="skill-card blue-card">
-
-                <div class="skill-number">
-                    02
-                </div>
-
-                <div class="skill-icon">
-                    🐧
-                </div>
-
-                <h3>LINUX</h3>
-
-                <p>
-                    Linux permissions, enumeration,
-                    user management dan privilege escalation.
-                </p>
-
-                <div class="skill-bar">
-                    <div style="width:80%"></div>
-                </div>
-
-                <small>80%</small>
-
-            </div>
-
-
-            <div class="skill-card purple-card">
-
-                <div class="skill-number">
-                    03
-                </div>
-
-                <div class="skill-icon">
-                    🔍
-                </div>
-
-                <h3>DIGITAL FORENSICS</h3>
-
-                <p>
-                    PCAP, Wireshark, metadata,
-                    strings dan network analysis.
-                </p>
-
-                <div class="skill-bar">
-                    <div style="width:70%"></div>
-                </div>
-
-                <small>70%</small>
-
-            </div>
-
-
-            <div class="skill-card red-card">
-
-                <div class="skill-number">
-                    04
-                </div>
-
-                <div class="skill-icon">
-                    ⚙️
-                </div>
-
-                <h3>REVERSE ENGINEERING</h3>
-
-                <p>
-                    ELF, strings, obfuscation
-                    dan binary analysis.
-                </p>
-
-                <div class="skill-bar">
-                    <div style="width:65%"></div>
-                </div>
-
-                <small>65%</small>
-
-            </div>
-
-
-            <div class="skill-card blue-card">
-
-                <div class="skill-number">
-                    05
-                </div>
-
-                <div class="skill-icon">
-                    🔐
-                </div>
-
-                <h3>CRYPTOGRAPHY</h3>
-
-                <p>
-                    Caesar, Vigenere, XOR,
-                    hashing dan PRNG.
-                </p>
-
-                <div class="skill-bar">
-                    <div style="width:70%"></div>
-                </div>
-
-                <small>70%</small>
-
-            </div>
-
-
-            <div class="skill-card purple-card">
-
-                <div class="skill-number">
-                    06
-                </div>
-
-                <div class="skill-icon">
-                    💥
-                </div>
-
-                <h3>BINARY EXPLOITATION</h3>
-
-                <p>
-                    Buffer overflow, integer overflow
-                    dan format string.
-                </p>
-
-                <div class="skill-bar">
-                    <div style="width:60%"></div>
-                </div>
-
-                <small>60%</small>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- TERMINAL -->
-    <section id="terminal" class="section terminal-section">
-
-        <div class="section-title">
-            <span>// 03</span>
-            <h2>INTERACTIVE <b>TERMINAL</b></h2>
-        </div>
-
-
-        <div class="big-terminal">
-
-            <div class="terminal-header">
-
-                <div class="dots">
-                    <span class="dot red"></span>
-                    <span class="dot yellow"></span>
-                    <span class="dot green"></span>
-                </div>
-
-                <span>bash</span>
-
-            </div>
-
-
-            <div class="terminal-screen">
-
-                <div id="terminal-output">
-
-                    <p>
-                        Welcome to CyberProfile Terminal.
-                    </p>
-
-                    <p>
-                        Type <span class="purple">help</span>
-                        to see available commands.
-                    </p>
-
-                </div>
-
-
-                <div class="terminal-input">
-
-                    <span>cyber2@kali:~$</span>
-
-                    <input
-                        type="text"
-                        id="command"
-                        autocomplete="off"
-                        autofocus
-                    >
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- CONTACT -->
-    <section id="contact" class="section contact">
-
-        <div class="section-title">
-            <span>// 04</span>
-            <h2>CONTACT <b>ME</b></h2>
-        </div>
-
-        <p>
-            Let's learn cybersecurity together.
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Student · Cybersecurity</div>
+
+        <h1>
+          Halo, saya<br>
+          <span class="gradient">Fadhil Akhmad.</span>
+        </h1>
+
+        <p class="intro">
+          Pelajar yang sedang mengembangkan kemampuan di bidang keamanan siber,
+          Linux, keamanan web, dan digital forensics. Saya percaya bahwa
+          belajar, berlatih, dan mencoba adalah bagian dari proses berkembang.
         </p>
 
-
-        <div class="contact-grid">
-
-            <a href="#" class="contact-btn">
-                <span>🐙</span>
-                GitHub
-            </a>
-
-            <a href="#" class="contact-btn">
-                <span>📸</span>
-                Instagram
-            </a>
-
-            <a href="#" class="contact-btn">
-                <span>✉️</span>
-                Email
-            </a>
-
+        <div class="actions">
+          <a class="btn primary" href="profile.html">View Profile ↗</a>
+          <a class="btn" href="skills.html">Keahlian ↗</a>
+          <a class="btn" href="progress.html">Pembelajaran ↗</a>
         </div>
+      </div>
 
+      <div class="scene" aria-hidden="true">
+        <div class="cube">⌘</div>
+      </div>
     </section>
 
-
-    <footer>
-
+    <section class="grid">
+      <article class="card">
+        <div class="icon">🛡️</div>
+        <h2>Cybersecurity</h2>
         <p>
-            <span>CYBERPROFILE</span> © 2026
+          Mempelajari keamanan aplikasi dan sistem melalui latihan
+          yang legal dan terkontrol.
         </p>
+      </article>
 
+      <article class="card">
+        <div class="icon">💻</div>
+        <h2>Terus Berkembang</h2>
         <p>
-            Built with HTML • CSS • JavaScript
+          Membangun keterampilan teknis melalui praktik, evaluasi,
+          dan proyek mandiri.
         </p>
+      </article>
+    </section>
+  </main>
 
-    </footer>
-
-
-    <script src="script.js"></script>
-
+  <footer>
+    <p>© 2026 Fadhil Akhmad · Cybersecurity Portfolio</p>
+    <p>Dibuat untuk menampilkan perjalanan belajar dan proyek pribadi.</p>
+  </footer>
 </body>
 </html>
-```
